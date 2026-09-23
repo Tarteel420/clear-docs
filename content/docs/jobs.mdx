@@ -1,0 +1,214 @@
+---
+title: Jobs
+description: Creating and managing wipe jobs, viewing and editing job details, and exporting job information.
+---
+
+import { Steps, Step } from 'fumadocs-ui/components/steps';
+import { Tabs, Tab } from 'fumadocs-ui/components/tabs';
+
+The **Jobs** tab is the central workspace for managing and reviewing all sanitization sessions in Clear. Each wipe session is organized as a Job, so operators can monitor, control, and audit batch processing activities.
+
+Within Jobs, operators can:
+
+- Track batch-level progress across multiple devices wiped in parallel.
+- Manage job states during execution (edit, terminate, or close jobs).
+- View job-level results and monitor overall progress.
+- Export consolidated reports and certificates upon completion.
+- Maintain a complete, auditable history of all sanitization activities.
+
+## Creating a wipe job
+
+A wipe job is created when one or more devices are selected and a wipe operation is initiated.
+
+<Steps>
+<Step>
+In the **Local Devices** tab, select one or more devices marked **Ready**. Review device information and status before adding a device to the list.
+</Step>
+<Step>
+Confirm any locked devices have been configured and unlocked first (see [Per Device Configuration](/docs/local-devices#per-device-configuration)).
+
+![Selecting devices before wipe](/docs-images/select-devices-wipe.png)
+
+<Callout type="error" title="Important">
+Wiping is irreversible once initiated and permanently removes all data from the selected devices. Ensure the correct devices are selected and any required data has been backed up before proceeding.
+</Callout>
+</Step>
+<Step>
+Click **Wipe Devices** from the top bar. The Select Job Confirmation dialog opens.
+</Step>
+<Step>
+Choose **Create New Job** to start a new job and specify a **Job name** (required) and **Vendor** (optional):
+
+![Create new job dialog](/docs-images/create-new-job.png)
+
+Or choose **Add to Existing Job** and select an existing job to add the devices to:
+
+![Add to existing job dialog](/docs-images/add-to-existing-job.png)
+</Step>
+<Step>
+Click **Yes, Wipe Devices** to start. The selected devices are grouped into a single job and move to the Jobs tab for monitoring.
+</Step>
+</Steps>
+
+## Managing jobs
+
+The Jobs tab gives visibility into active and completed jobs, so you can monitor progress, manage states, and access results. Devices from a vendor can be grouped into one job so reports and certificates for the whole batch can be generated together, then the job closed once all devices finish.
+
+Click the **Jobs** tab in the navigation panel to access this workspace.
+
+## Viewing job details
+
+<Steps>
+<Step>Click the **Jobs** tab.</Step>
+<Step>
+Click on the required job from the list. The Job Details view opens, showing all devices assigned to the job.
+
+![Job details view](/docs-images/job-details-view.png)
+</Step>
+<Step>
+From here you can review and edit job details, verify included devices, review device-level status, abort the job, or export job data for closed/completed jobs.
+</Step>
+</Steps>
+
+## Edit job information
+
+<Steps>
+<Step>Click the **Jobs** tab — the jobs list displays.</Step>
+<Step>
+Locate the job, click the three dots in the top right, and select **Edit**.
+
+![Edit job menu](/docs-images/edit-job-menu.png)
+</Step>
+<Step>
+The Edit Job Details dialog opens.
+
+![Edit job details dialog](/docs-images/edit-job-dialog.png)
+</Step>
+<Step>Update the **Job name** (required) and/or **Vendor** (optional).</Step>
+<Step>Click **Save Changes**.</Step>
+</Steps>
+
+## Abort job
+
+Abort a job to stop all ongoing sanitization processes — for example, if the wrong devices were selected, or an operational issue requires immediate termination.
+
+<Callout type="warn" title="Note that...">
+- Only available when the job is **Running**.
+- Aborting terminates all in-progress device operations.
+- Device status and its sanitization certificate will be terminated.
+- The job status updates to **Aborted**.
+</Callout>
+
+<Steps>
+<Step>
+Locate the job, click the three dots, then click **Abort**.
+
+![Abort job menu](/docs-images/abort-job-menu.png)
+</Step>
+<Step>
+A warning displays.
+
+![Abort job warning](/docs-images/abort-job-warning.png)
+</Step>
+<Step>Click **Abort Job** to confirm.</Step>
+</Steps>
+
+## Close job
+
+Close a job to finalize it once all sanitization activities are complete and verified. This signals processing is done and no further changes are expected.
+
+<Callout type="warn" title="Note that...">
+- Closing a job moves it to the Closed category.
+- No additional devices can be added once closed.
+- The job can no longer be edited.
+- It remains available for reporting, certificate generation, and audit review.
+</Callout>
+
+<Steps>
+<Step>
+Locate the job, click the three dots, then select **Close**.
+
+![Close job menu](/docs-images/close-job-menu.png)
+</Step>
+<Step>
+A warning displays.
+
+![Close job warning](/docs-images/close-job-warning.png)
+</Step>
+<Step>Click **Close Job** to confirm.</Step>
+</Steps>
+
+## Viewing jobs
+
+For each job, Clear displays: Job ID, Job Name, Vendor, Status, Progress, Devices count, and Start date. Jobs can be viewed in two layouts:
+
+<Tabs items={['List View', 'Card View']}>
+<Tab value="List View">
+A structured, tabular layout, ideal for managing large volumes of jobs.
+
+![Jobs list view](/docs-images/jobs-list-view.png)
+</Tab>
+<Tab value="Card View">
+A visual, card-based format, suited to smaller datasets and quick review.
+
+![Jobs card view](/docs-images/jobs-card-view.png)
+</Tab>
+</Tabs>
+
+## Filter jobs by status
+
+Use the **Filter by Status** drop-down in the top-right corner of the Jobs workspace.
+
+![Filter by status dropdown](/docs-images/filter-by-status.png)
+
+**Active Jobs** — currently open and manageable. A job in this state can be:
+
+- **Running** — one or more devices currently being wiped.
+- **Completed** — all devices finished, but the job stays open for review, reporting, or export.
+- **Aborted** — stopped by the user; in-progress operations terminated.
+
+Active jobs are editable and can transition to Closed once processing and verification are complete.
+
+**Closed Jobs** — finalized and read-only; retained for reporting, certificate generation, and audit purposes.
+
+## Job search
+
+Type a keyword in the search bar at the top left of the application to quickly locate jobs. The workspace updates dynamically.
+
+![Job search bar](/docs-images/job-search-bar.png)
+
+## Exporting job information
+
+<Callout type="info">
+Export actions are available only when jobs are **Completed** or **Aborted**.
+</Callout>
+
+### Export to file (CSV)
+
+Exports job and device data as a CSV file. Selecting multiple jobs generates one consolidated file.
+
+<Callout type="idea">
+By default, all available columns are included. Customize which columns export in [Export Configuration](/docs/configuration-options#export-configuration).
+</Callout>
+
+Select the required job(s) and click **Export to File**.
+
+![Export to file button](/docs-images/export-to-file.png)
+
+Save the file to your desired location.
+
+### Download certificates
+
+For Completed or Aborted jobs, download certificates and reports as a compressed ZIP archive.
+
+![Download certificates button](/docs-images/download-certificates.png)
+
+Select the required job(s), click **Download Certificates**, and save to your desired location.
+
+### Export to StockWise
+
+Export jobs directly to StockWise. Select the required jobs and click **Export to StockWise**. Devices that pass sanitization can be exported as resale-ready inventory, along with their reporting data. See [Export to StockWise](/docs/configuration-options#export-to-stockwise) to set up the integration first.
+
+---
+
+Next: [Verification and Validation](/docs/verification)

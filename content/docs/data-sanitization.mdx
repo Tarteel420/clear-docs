@@ -1,0 +1,45 @@
+---
+title: Data Sanitization
+description: What data sanitization is, the methods Clear supports, and the standards it aligns with.
+---
+
+## What is data sanitization?
+
+Data sanitization is the deliberate, permanent, and irreversible removal of data from storage media, so it cannot be reconstructed using software-based or laboratory-level recovery techniques.
+
+Ordinarily, deleting data using conventional methods (like moving a file to the recycle bin) does **not** remove the underlying information from the storage media — it only removes file system references. The original data can often still be recovered using specialized recovery or forensic tools, potentially exposing credentials, encryption keys, financial records, personal data, and other sensitive information.
+
+Data sanitization ensures that all addressable and hidden storage areas are cleared or purged in accordance with recognized industry standards.
+
+<Callout type="info" title="Why it matters">
+- Prevents identity theft and leakage of sensitive corporate or personal data.
+- Meets legal requirements for data destruction (e.g., GDPR, HIPAA, SOX).
+- Enables safe repurposing or resale of hardware instead of physical destruction.
+</Callout>
+
+## Sanitization methods
+
+Clear's methods follow **NIST Special Publication 800-88 Rev.1**, the primary industry framework for media sanitization in the United States. It defines three levels:
+
+<Cards>
+  <Card title="Clear" description="Protects against simple, non-invasive data recovery techniques. Overwrites all addressable storage locations using one or more passes. Suitable when devices remain within the same security boundary." />
+  <Card title="Purge" description="Protects against advanced, laboratory-level recovery techniques. May use firmware-based Secure Erase or Crypto Erase and addresses hidden or remapped sectors. Recommended when devices leave organizational control." />
+  <Card title="Destroy" description="Physical destruction of the media — shredding, crushing, or melting. Used in highly sensitive environments where reuse is not permitted." />
+</Cards>
+
+Clear's configurable wipe methods for **Clear** and **Purge** are covered in detail in [Wiping Methods Configuration](/docs/configuration-options#wiping-methods-configuration).
+
+## International standards
+
+Clear supports data destruction methods aligned with:
+
+- U.S. Department of Defense — DoD 5220.22-M
+- National Institute of Standards and Technology — NIST SP 800-88 and NIST SP 800-88 Rev.1
+- Institute of Electrical and Electronics Engineers — IEEE Std 2883-2022
+- Canadian CSEC ITSG-06
+- British Government — HMG IS5 (Baseline and Enhanced)
+- Peter Gutmann — Gutmann 35-pass method
+
+---
+
+Next: [Getting Started](/docs/getting-started)

@@ -1,0 +1,57 @@
+---
+title: Device Erasure Certificate
+description: Generating and understanding Device Erasure Certificates and other reporting options.
+---
+
+import { Steps, Step } from 'fumadocs-ui/components/steps';
+
+Clear provides comprehensive reporting and certification capabilities to support compliance, audit requirements, and customer delivery. These outputs serve as verifiable proof that data sanitization was successfully completed.
+
+Certificates and reports are generated automatically as part of the wipe process, and can be accessed, viewed, and exported as needed.
+
+## Device Erasure Certificate
+
+A Device Erasure Certificate is generated for each processed device upon completion of the wipe operation. It's typically used for:
+
+- Compliance and regulatory requirements
+- Customer delivery and proof of erasure
+- Internal record-keeping and audits
+
+Each certificate includes:
+
+- Report Information
+- Company Information
+- System Information
+- S.M.A.R.T Properties and Attributes
+- Erasure Details (method, configuration, duration)
+- Erasure Results (status, verification outcome)
+
+## Generating a Device Erasure Certificate
+
+<Steps>
+<Step>Navigate to the **Search** tab.</Step>
+<Step>Enter the **Device Serial Number**.</Step>
+<Step>Click **Search Device**. The certificate displays on the right side of the dialog.</Step>
+<Step>Use the navigation icons to move between certificate pages.</Step>
+<Step>Click the download icon. A save dialog appears.</Step>
+<Step>Choose a location and click **Save**.</Step>
+<Step>
+Open the downloaded report.
+
+![Device erasure certificate report](/docs-images/certificate-report.png)
+</Step>
+</Steps>
+
+## Other reporting options
+
+In addition to device-level certificates, Clear provides:
+
+<Cards>
+  <Card title="Export to File (CSV)" href="/docs/jobs#export-to-file-csv" description="Export job and device data for reporting and analysis." />
+  <Card title="Download Certificates" href="/docs/jobs#download-certificates" description="Download multiple device certificates in a single archive." />
+  <Card title="Export to StockWise" href="/docs/configuration-options#export-to-stockwise" description="Send job and device data to StockWise for asset tracking." />
+</Cards>
+
+---
+
+Next: [Configuration Options](/docs/configuration-options)

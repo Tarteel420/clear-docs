@@ -1,0 +1,15 @@
+{
+  "title": "Clear User Guide",
+  "pages": [
+    "index",
+    "data-sanitization",
+    "getting-started",
+    "installation",
+    "overview-and-navigation",
+    "local-devices",
+    "jobs",
+    "verification",
+    "certificates",
+    "configuration-options"
+  ]
+}

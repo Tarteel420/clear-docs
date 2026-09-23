@@ -1,0 +1,59 @@
+---
+title: Getting Started
+description: Key features, intended audience, and system prerequisites for Clear.
+---
+
+import { ShieldCheck, Layers, ListChecks, Activity, History, FileCheck, Award } from 'lucide-react';
+
+This chapter introduces Clear and provides an overview of its capabilities, intended users, and system requirements.
+
+## Key features
+
+<Cards>
+  <Card icon={<ShieldCheck />} title="Secure Data Sanitization" description="Supports approved sanitization techniques including Clear, Purge, and other compliant overwrite methods." />
+  <Card icon={<Award />} title="Industry-Standard Wiping Methods" description="Aligned with IEEE 2883-2022 and NIST Special Publication 800-88 Rev.1." />
+  <Card icon={<Layers />} title="Multi-Device Parallel Wiping" description="Wipe multiple drives simultaneously to optimize throughput." />
+  <Card icon={<ListChecks />} title="Job-Based Wiping & Operational Control" description="Organizes large batches into structured jobs for controlled execution and consolidated reporting." />
+  <Card icon={<Activity />} title="SMART Monitoring & Health Analytics" description="Performs pre-wipe SMART diagnostics to identify failing drives before time is wasted processing them." />
+  <Card icon={<History />} title="Historical Search & Traceability" description="Indexes all processed devices in a searchable database for serial-based status tracking and audit retrieval." />
+  <Card icon={<FileCheck />} title="Reports and Certificates" description="Generates detailed erasure reports and tamper-resistant certificates for compliance and audit purposes." />
+</Cards>
+
+## Intended audience
+
+Clear is primarily designed for organizations and professionals in the IT Asset Disposition (ITAD) industry who need reliable, auditable, and compliant data sanitization for retired or redeployed IT equipment, including:
+
+- ITAD technicians
+- System operators
+- IT administrators
+- Compliance or audit personnel
+
+## System prerequisites
+
+### Hardware requirements
+
+| Component | Requirement |
+|---|---|
+| Processor | Quad-Core CPU with concurrency and processing load |
+| RAM | 8 GB or more recommended for environments running 10+ simultaneous wipe operations |
+| Storage | 50 GB or more. SSD recommended for improved logging and reporting performance |
+
+<Callout type="info">
+Systems handling large batches of devices, or high levels of concurrent wiping, may require additional resources.
+</Callout>
+
+### Supported operating systems
+
+Clear is optimized for **Linux**, specifically **Ubuntu 22.04 LTS (Jammy Jellyfish) or newer**.
+
+<Callout type="warn">
+Kernel version 5.4 or higher is required to ensure full NVMe Sanitize command support.
+</Callout>
+
+### Software dependencies
+
+Administrator privileges are required on the system to install and operate Clear.
+
+---
+
+Next: [Installation and Setup](/docs/installation)
