@@ -1,0 +1,43 @@
+---
+title: Label Printer
+description: Review and edit the label printer connection, or disconnect it.
+---
+
+import { Steps, Step } from 'fumadocs-ui/components/steps';
+
+The **Label Printer** page holds the connection the portal uses to print labels.
+
+## Reviewing the connection
+
+Click **Label Printer** under **Configuration** in the portal menu. The page shows:
+
+- **Status** — for example, **Enabled**.
+- **Printer URL** — the endpoint labels are sent to.
+- **Credentials** — whether a token is stored. Stored credentials are encrypted at rest.
+- **Updated** — when the connection was last changed.
+
+![Label Printer page](/docs-images/clear-portal/label-printer.png)
+
+## Editing the label printer
+
+<Steps>
+<Step>Click **Edit** (top right). The Edit label printer dialog opens.</Step>
+<Step>
+Enter the **Printer URL** — the endpoint the portal POSTs `{ serial }` to.
+
+![Edit label printer dialog](/docs-images/clear-portal/edit-label-printer.png)
+</Step>
+<Step>
+**Bearer token** — leave blank to keep the stored token, or enter a new value to replace it.
+</Step>
+<Step>Use the **Enabled** switch to turn label printing on or off.</Step>
+<Step>Click **Save**.</Step>
+</Steps>
+
+## Disconnecting the label printer
+
+Click **Disconnect** (top right) to remove the label printer connection.
+
+---
+
+Next: [Export Columns](/docs/clear-portal/export-columns)

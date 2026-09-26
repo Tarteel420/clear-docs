@@ -1,0 +1,17 @@
+{
+  "title": "Clear Portal",
+  "root": true,
+  "pages": [
+    "index",
+    "---Overview---",
+    "dashboard",
+    "projects",
+    "system-wipes",
+    "---Configuration---",
+    "project-configuration",
+    "vendor-profiles",
+    "external-system",
+    "label-printer",
+    "export-columns"
+  ]
+}

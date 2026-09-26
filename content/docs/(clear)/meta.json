@@ -1,0 +1,19 @@
+{
+  "title": "Clear",
+  "root": true,
+  "pages": [
+    "index",
+    "data-sanitization",
+    "getting-started",
+    "---Setup---",
+    "installation",
+    "overview-and-navigation",
+    "---Using Clear---",
+    "local-devices",
+    "jobs",
+    "verification",
+    "certificates",
+    "---Configuration---",
+    "configuration-options"
+  ]
+}

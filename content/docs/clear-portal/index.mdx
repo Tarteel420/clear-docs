@@ -1,0 +1,62 @@
+---
+title: About Clear Portal
+description: An introduction to Clear Portal, the web-based management console by Ninety Nine Technologies.
+---
+
+import { Steps, Step } from 'fumadocs-ui/components/steps';
+
+<Callout type="info" title="Clear Portal is a separate product">
+Clear Portal is a web-based management console. It is separate from the Clear desktop application documented under the **Clear** tab.
+</Callout>
+
+Welcome to the **Clear Portal User Guide**. This section explains how to monitor wipe activity and set up the projects, vendors, and integrations your organisation works with.
+
+## What is Clear Portal?
+
+Clear Portal gives your organisation one place to:
+
+- See users, licences, and wipe session results at a glance on the **Dashboard**.
+- Review projects, system wipes, and directly wiped drives, and export them as CSV.
+- Download certificates for a project.
+- Create and manage **projects** and **vendor profiles**, including their wiping configuration.
+- Connect an **external system** (such as AccountWise), a **label printer**, and choose which **export columns** appear in CSV files.
+
+## Portal navigation
+
+The portal menu on the left is organised into three groups. The organisation you are working in is shown at the bottom of the menu.
+
+| Group | Pages |
+| --- | --- |
+| **Overview** | Dashboard, Projects, System Wipes |
+| **Configuration** | Projects, Vendor Profiles, External System, Label Printer, Export Columns |
+| **Management** | Users, Licenses, API Tokens, Settings, Webhooks |
+
+![Clear Portal menu and Dashboard](/docs-images/clear-portal/dashboard.png)
+
+<Callout type="warn" title="Coverage">
+This guide currently covers the **Overview** and **Configuration** pages. Signing in and the **Management** pages will be added in a later update.
+</Callout>
+
+## Where to start
+
+<Cards>
+  <Card title="Dashboard" href="/docs/clear-portal/dashboard" description="Users, licences, and wipe session results at a glance." />
+  <Card title="Projects" href="/docs/clear-portal/projects" description="Review a project's system wipes and direct drives." />
+  <Card title="Project Configuration" href="/docs/clear-portal/project-configuration" description="Create a project and set its wiping configuration." />
+  <Card title="Vendor Profiles" href="/docs/clear-portal/vendor-profiles" description="Add the vendors your projects belong to." />
+</Cards>
+
+## Recommended setup order
+
+If you are setting up the portal for the first time, work through the Configuration pages in this order:
+
+<Steps>
+<Step>**External System** (optional) — connect AccountWise to pick vendors and purchase orders from it. See [External System](/docs/clear-portal/external-system).</Step>
+<Step>**Vendor Profiles** — add each vendor and its default wiping configuration. See [Vendor Profiles](/docs/clear-portal/vendor-profiles).</Step>
+<Step>**Projects** — create a project for a vendor and purchase order. See [Project Configuration](/docs/clear-portal/project-configuration).</Step>
+<Step>**Label Printer** and **Export Columns** (optional) — set up label printing and CSV columns. See [Label Printer](/docs/clear-portal/label-printer) and [Export Columns](/docs/clear-portal/export-columns).</Step>
+</Steps>
+
+## Need help?
+
+For product inquiries, technical support, or licensing assistance, contact your designated project representative at Ninety Nine Technologies, LLC.

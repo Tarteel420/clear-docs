@@ -1,4 +1,4 @@
-export const appName = 'Clear User Guide';
+export const appName = 'Clear Docs';
 export const docsRoute = '/docs';
 export const docsImageRoute = '/og/docs';
 export const docsContentRoute = '/llms.mdx/docs';

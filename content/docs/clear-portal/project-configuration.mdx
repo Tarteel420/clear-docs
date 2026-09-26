@@ -1,0 +1,104 @@
+---
+title: Project Configuration
+description: Create projects, edit their wiping configuration, set a licence quota, and mark projects inactive.
+---
+
+import { Steps, Step } from 'fumadocs-ui/components/steps';
+
+The **Projects** page in the **Configuration** group is where projects are created and maintained. To review a project's wipe results, use [Projects](/docs/clear-portal/projects) in the Overview group.
+
+## The Projects list
+
+Click **Projects** under **Configuration** in the portal menu.
+
+- Filter with the **All**, **Active**, and **Inactive** tabs.
+- Search by **name**, **PO**, or **vendor**.
+- Columns: **Project**, **PO**, **Source**, **Wiping method**, **Status**, **Licences**, **Created**.
+
+![Projects list in the Configuration group](/docs-images/clear-portal/config-projects-list.png)
+
+## Creating a project
+
+<Callout type="info">
+A project needs a vendor profile. If the vendor is not listed, add it first in [Vendor Profiles](/docs/clear-portal/vendor-profiles).
+</Callout>
+
+<Steps>
+<Step>On the Projects page, click **Create project**. The Create project dialog opens.</Step>
+<Step>
+Enter a **Project name**. The name must be unique in your organisation (case-insensitive).
+
+![Create project dialog](/docs-images/clear-portal/create-project.png)
+</Step>
+<Step>Search for and select a **Vendor profile**.</Step>
+<Step>Select a **Purchase order**. This field is available once a vendor profile is selected.</Step>
+<Step>
+Under **Additional Settings**, tick any that apply to this project:
+
+- **Require stock-in**
+- **Require visual grading**
+- **Require label print**
+</Step>
+<Step>
+Under **Licence allocation**, leave the project **Uncapped** to draw licences from the organisation pool, or tick **Allocate a fixed number of licences**. A quota can also be set from the project page after it is created — see [Setting a licence quota](#setting-a-licence-quota).
+</Step>
+<Step>Click **Create**.</Step>
+</Steps>
+
+## Viewing a project's configuration
+
+Select a project from the list to open its configuration page. It contains:
+
+| Section | Details shown |
+| --- | --- |
+| **Project** | Name, Vendor, Source, PO number, External PO ID, External vendor ID, Created, Updated |
+| **Current wiping configuration** | Group, Method, Verification %, Verify method, PRNG method |
+| **Additional Settings** | Stock-in, Visual grading, Label print (required or not required) |
+| **Licence quota** | Current quota and licences consumed |
+| **Version history** | A snapshot of each configuration change, with date, wiping method, and PO |
+
+![Project configuration page](/docs-images/clear-portal/config-project-details.png)
+
+## Editing a project
+
+<Steps>
+<Step>Open the project and click **Edit** (top right). The Edit project dialog opens.</Step>
+<Step>
+Update the **Name** or **Purchase order number** if needed.
+
+![Edit project dialog](/docs-images/clear-portal/edit-project.png)
+</Step>
+<Step>
+Under **Wiping configuration**, set:
+
+- **Group** and **Method** — the sanitization group and wiping method.
+- **Verification percentage** — the helper text beside the field shows the allowed range for the selected method.
+- **Verify method** and **PRNG method**.
+- **Overwrite pass after purge** — turn on or off.
+- **Fall-back method**.
+
+For background on sanitization groups, see [Data Sanitization](/docs/data-sanitization).
+</Step>
+<Step>Update **Additional Settings** (stock-in, visual grading, label print) as needed.</Step>
+<Step>Click **Save**.</Step>
+</Steps>
+
+## Setting a licence quota
+
+<Steps>
+<Step>Open the project and click **Set quota** in the **Licence quota** section.</Step>
+<Step>
+Enter the number of **Licences allocated to this project**. The quota cannot be lower than the number of licences the project has already consumed.
+
+![Set licence quota dialog](/docs-images/clear-portal/set-licence-quota.png)
+</Step>
+<Step>Click **Save**.</Step>
+</Steps>
+
+## Marking a project inactive
+
+Open the project and click **Mark Inactive** (top right). The project's status changes to **Inactive**.
+
+---
+
+Next: [Vendor Profiles](/docs/clear-portal/vendor-profiles)
