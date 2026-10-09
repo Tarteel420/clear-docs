@@ -1,0 +1,187 @@
+---
+title: Installation and Setup
+description: How to install the Clear Server and Clear User Interface, and complete post-installation configuration.
+---
+
+import { Steps, Step } from 'fumadocs-ui/components/steps';
+import { Tabs, Tab } from 'fumadocs-ui/components/tabs';
+
+Clear consists of two core components. **Both** must be installed for full functionality:
+
+- **Clear Server** — the backend service responsible for device detection, wipe execution, method enforcement, logging, and reporting.
+- **Clear User Interface** — the interface used to manage devices, configure wipe jobs, monitor progress, and access audit-ready reports.
+
+## Step 1 — Download the installer
+
+Log in to Clear Portal and click the **Download** icon in the top-right corner of the Dashboard. The Clear Desktop Application build downloads to your computer. See [Getting started](/docs/clear-portal#getting-started) for the full sequence. You can also obtain the installation package from your system administrator.
+
+## Step 2 — Install the Clear Server (recommended first)
+
+<Steps>
+<Step>
+**Double-click the Clear Server Installer.**
+
+![Clear Server installer file](/docs-images/install-server-installer.png)
+</Step>
+<Step>
+**The installer dialog displays. Click Install.**
+
+![Clear Server installer dialog](/docs-images/install-server-dialog.png)
+</Step>
+<Step>
+**A security warning displays. Click Install again.**
+
+![Security warning dialog](/docs-images/install-security-warning.png)
+</Step>
+<Step>
+**Enter your administrator password and click Authenticate.**
+
+![Administrator password prompt](/docs-images/install-admin-password.png)
+</Step>
+<Step>
+**The Clear Server installs on your system.**
+
+![Clear Server installing](/docs-images/install-server-installing.png)
+
+You've now installed the Clear Server. Next, install the Clear User Interface.
+</Step>
+</Steps>
+
+## Step 3 — Install the Clear User Interface
+
+<Steps>
+<Step>
+**Double-click the Clear User Interface Installer.**
+
+![Clear User Interface installer file](/docs-images/install-ui-installer.png)
+</Step>
+<Step>
+**The installer dialog displays. Click Install.**
+
+![Clear User Interface installer dialog](/docs-images/install-ui-dialog.png)
+</Step>
+<Step>
+**A security warning appears. Click Install again.**
+</Step>
+<Step>
+**The Clear User Interface installs on your system.**
+
+![Clear User Interface installing](/docs-images/install-ui-installing.png)
+
+Installation is now complete.
+</Step>
+</Steps>
+
+## Step 4 — Post-installation configuration
+
+Complete these steps before launching the application.
+
+### Configure GRUB for ATA/SATA SED support
+
+<Callout type="warn" title="Note that...">
+This step is required for Clear to manage ATA/SATA Self-Encrypting Drives (SEDs). If skipped, a warning appears at launch and SEDs won't be accessible through the application.
+</Callout>
+
+Open Terminal and edit the GRUB configuration file:
+
+```bash
+sudo nano /etc/default/grub
+```
+
+Find the line starting with `GRUB_CMDLINE_LINUX_DEFAULT` and add the following option inside the quoted values:
+
+```
+libata.allow_tpm=1
+```
+
+Example:
+
+```
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash libata.allow_tpm=1"
+```
+
+Save the file, then apply the change and reboot:
+
+```bash
+sudo update-grub
+sudo reboot
+```
+
+### License key configuration
+
+Before configuring the license key, make sure both the Clear Server and Clear User Interface are installed. You'll also need either a **license key** or a pre-configured **server_config.json** file from Ninety Nine Technologies, LLC.
+
+<Tabs items={['Option 1: Pre-configured file', 'Option 2: Manual license key']}>
+<Tab value="Option 1: Pre-configured file">
+
+If a pre-configured `server_config.json` file has been provided:
+
+<Steps>
+<Step>
+Navigate to the server configuration directory:
+```bash
+/usr/clear_server/Config/
+```
+</Step>
+<Step>
+Back up the existing configuration file:
+```bash
+sudo cp /usr/clear_server/Config/server_config.json /usr/clear_server/Config/server_config.json.bak
+```
+</Step>
+<Step>
+Replace the configuration file with the provided file:
+```bash
+sudo cp /path/to/provided/server_config.json /usr/clear_server/Config/server_config.json
+```
+</Step>
+<Step>
+Verify the license key is present:
+```bash
+sudo grep -i "license_key" /usr/clear_server/Config/server_config.json
+```
+Confirm the output shows a non-empty value, e.g. `"license_key": "XXXX-XXXX-XXXX-XXXX"`.
+</Step>
+</Steps>
+
+</Tab>
+<Tab value="Option 2: Manual license key">
+
+If you received a license key instead of a pre-configured file:
+
+<Steps>
+<Step>
+Open the configuration file:
+```bash
+sudo nano /usr/clear_server/Config/server_config.json
+```
+</Step>
+<Step>
+Locate the licensing section and replace the empty `license_key` value with your provided key.
+</Step>
+<Step>
+Save the file: `Ctrl+O`, then `Enter`, then `Ctrl+X`.
+</Step>
+<Step>
+Verify the change was saved:
+```bash
+sudo grep "license_key" /usr/clear_server/Config/server_config.json
+```
+Confirm the output shows your license key instead of an empty string.
+</Step>
+</Steps>
+
+</Tab>
+</Tabs>
+
+## Step 5 — Launch Clear
+
+Click the Clear icon to launch the application.
+
+<Callout type="info">
+You'll be prompted for the system administrator password each time you open Clear — this grants Clear the privileges it needs for direct hardware access.
+</Callout>
+
+---
+
+Next: [Overview and Navigation](/docs/overview-and-navigation)

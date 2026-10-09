@@ -1,0 +1,181 @@
+---
+title: Licences
+description: View your organisation's licence balance, download online and offline licence files, and activate them in Clear.
+---
+
+import { Steps, Step } from 'fumadocs-ui/components/steps';
+
+The **Licenses** page in the **Management** group shows how many licences your organisation has and how they are being used. It is also where you download the licence file that activates Clear.
+
+## How licences are assigned
+
+Our team assigns the number of licences you purchased to your organisation. For example, if you purchase 100 licences, 100 licences are assigned to your organisation. You can then see them on the **Licenses** page.
+
+## Viewing your licences
+
+<Steps>
+<Step>Click **Licenses** under **Management** in the portal menu.</Step>
+<Step>
+Review the **Drive Eraser** summary card.
+
+![Licenses page with the Drive Eraser summary card](/docs-images/clear-portal/licences-overview.png)
+</Step>
+</Steps>
+
+The summary card shows:
+
+| Field | What it shows |
+| --- | --- |
+| **Total** | All licences assigned to your organisation. |
+| **Consumed directly** | Licences used outside project quotas — for example, by offline licence files. |
+| **Allocated to projects** | Licences set aside as fixed project quotas. See [Setting a licence quota](/docs/clear-portal/project-configuration#setting-a-licence-quota). |
+| **Unallocated** | Total, minus licences consumed directly and allocated to projects. |
+| **Spent by uncapped projects** | Licences used by projects that draw from the organisation pool. |
+| **Reserved by wipes in progress** | Licences held for wipes that are still running. |
+| **Remaining** | Licences still available to your organisation. |
+
+A short note under the card explains how the consumed total is split between direct use and project use.
+
+Below the card, a table shows the same figures by product: **Product**, **Total**, **Consumed**, **Allocated**, **Reserved**, **Remaining**, **Last Updated**, and **Actions**.
+
+![Licences table](/docs-images/clear-portal/licences-table.png)
+
+## Viewing licence history
+
+To see every change to your licence balance, click the clock icon next to **Download License**, or click the clock icon in the **Actions** column of the table. The **License History** page opens.
+
+![License History page](/docs-images/clear-portal/licence-history.png)
+
+Each row shows the **Event** (for example, **QuotaAllocated**, **Reserved**, **Released**, or **Consumed**), **Delta**, **Scope** (the organisation or a project), **Total / quota (before → after)**, **Consumed (before → after)**, **Drive**, and **When**.
+
+## Downloading a licence file
+
+Click **Download License** (top right of the Licenses page) to open a three-step wizard: **Choose client**, **Choose mode**, and **Issue licence**.
+
+### Step 1 — Choose client
+
+Select which client needs the licence:
+
+- **Desktop Application** — bulk wiping client for technician workstations.
+- **Bootable Setup** — USB installer for the bootable erasure environment. See [Bootable Setup licences](#bootable-setup-licences).
+
+![Choose client step](/docs-images/clear-portal/download-licence-client.png)
+
+### Step 2 — Choose mode
+
+Select whether the machine can reach the Clear API:
+
+- **Online** — the machine can reach the Clear API. Licence checks happen live.
+- **Offline** — the machine is air-gapped. The licence is bound to that machine.
+
+![Choose mode step](/docs-images/clear-portal/download-licence-mode.png)
+
+### Online vs offline at a glance
+
+| | Online | Offline |
+| --- | --- | --- |
+| **Connection** | The machine can reach the Clear API. | The machine is air-gapped. |
+| **Machine fingerprint** | Not needed. | Required. The licence is locked to that machine. |
+| **Licence usage** | Wipes are counted against your licence pool as drives report in. Issuing the file consumes no credits. | You decide the allowance when you issue the file: a fixed number of wipes (**Credits**) or unlimited wipes until a date (**Time-bound**). |
+| **Fields** | **Label** (optional) | **Machine fingerprint**, **Accounting**, **Wipes** and **Wipes expire** or **Valid until**, **Label** (optional) |
+
+## Online licence workflow
+
+Use an online licence when the desktop application can connect to Clear Portal.
+
+### In Clear Portal
+
+<Steps>
+<Step>On the Licenses page, click **Download License**.</Step>
+<Step>Select **Desktop Application**, then select **Online**.</Step>
+<Step>
+Optionally, enter a **Label**. It is shown in the API token name so you can tell licences apart.
+
+![Online licence for the Desktop Application](/docs-images/clear-portal/download-licence-online.png)
+</Step>
+<Step>Click **Generate licence file**. A licence file with the `.lic` extension is downloaded.</Step>
+</Steps>
+
+<Callout type="info">
+The online licence carries the portal's address and an API token for your organisation. It runs for as long as the current signing certificate allows — the exact date is shown once the licence is issued.
+</Callout>
+
+### In the Clear Desktop Application
+
+<Steps>
+<Step>
+Open the Clear Desktop Application and click **License** in the left sidebar.
+
+![License option in the Clear sidebar](/docs-images/desktop-license-menu.png)
+</Step>
+<Step>
+The **License Deployment** page opens. Under **Install a license**, click **Choose file** and select the `.lic` file you downloaded.
+
+![License Deployment page](/docs-images/desktop-license-deployment.png)
+</Step>
+<Step>Click **Install license**.</Step>
+</Steps>
+
+The licence is verified before it replaces the current licence, and it takes effect immediately — no restart is needed. If the file cannot be used on this machine, the previous licence is restored.
+
+### How online licences are consumed
+
+After activation, the desktop application is connected to the Clear Portal organisation the licence was downloaded from. Each wipe is counted against that organisation's licence pool.
+
+For example, if your organisation has 100 licences available, you can perform up to 100 wipes. Projects with a fixed licence quota draw from their own quota — see [Project Configuration](/docs/clear-portal/project-configuration#setting-a-licence-quota).
+
+## Offline licence workflow
+
+Use an offline licence when the machine has no connection to Clear. Because the desktop application cannot check your organisation's balance live, the licence is locked to one machine (using its hardware fingerprint), and you set its allowance when you issue it.
+
+<Steps>
+<Step>
+**Generate the fingerprint.** In the Clear Desktop Application, click **License** in the left sidebar. Under **Hardware fingerprint**, click **Generate fingerprint**.
+
+![Hardware fingerprint section on the License Deployment page](/docs-images/desktop-license-deployment.png)
+</Step>
+<Step>**Copy the fingerprint** that is generated.</Step>
+<Step>**Open the wizard.** In Clear Portal, go to **Licenses**, click **Download License**, select **Desktop Application**, then select **Offline**.</Step>
+<Step>
+**Paste the fingerprint** into **Machine fingerprint**. Paste it exactly as copied — do not reformat or line-wrap it.
+
+![Offline licence for the Desktop Application](/docs-images/clear-portal/download-licence-offline-credits.png)
+</Step>
+<Step>
+**Choose the Accounting type:**
+
+![Accounting options](/docs-images/clear-portal/download-licence-accounting.png)
+
+- **Credits** — a fixed number of wipes. Enter the number in **Wipes**. For example, entering 35 creates a licence that permits 35 wipes. The helper text shows how many licences are available in your pool. Optionally, set **Wipes expire** — if left blank, it defaults to the signing certificate expiry.
+- **Time-bound** — unlimited wipes until a date. Set **Valid until** (required). The date is capped at the signing certificate expiry.
+
+![Time-bound accounting](/docs-images/clear-portal/download-licence-offline-timebound.png)
+</Step>
+<Step>Optionally, enter a **Label**. It is recorded in the download filename.</Step>
+<Step>Click **Generate licence file**. The button is available once the required fields are filled in. A `.lic` file is downloaded.</Step>
+<Step>**Install the licence.** In the Clear Desktop Application, open **License**, click **Choose file** under **Install a license**, select the `.lic` file, and click **Install license**.</Step>
+</Steps>
+
+<Callout type="warn" title="Credits are charged when the file is issued">
+A **Credits** offline licence is debited from your organisation's licence pool the moment it is generated, because Clear never hears from that machine again. It appears under **Consumed directly** on the Licenses page.
+</Callout>
+
+## Bootable Setup licences
+
+To license the bootable erasure environment, select **Bootable Setup** in step 1 of the wizard. It offers the same **Online** and **Offline** modes as the Desktop Application:
+
+- **Online** — the page is titled **Online licence for the Bootable Setup** and has the same optional **Label** field and **Generate licence file** button.
+
+  ![Online licence for the Bootable Setup](/docs-images/clear-portal/download-licence-bootable-online.png)
+
+- **Offline** — the page is titled **Offline licence for the Bootable Setup** and has the same **Machine fingerprint**, **Accounting** (**Credits** or **Time-bound**), and **Label** fields. The fingerprint must come from the machine that will run the Bootable Setup.
+
+  ![Offline licence for the Bootable Setup](/docs-images/clear-portal/download-licence-bootable-offline.png)
+
+<Callout type="info" title="Coverage">
+This guide covers issuing Bootable Setup licences in Clear Portal. Generating the fingerprint and installing the licence inside the bootable environment will be added in a later update.
+</Callout>
+
+---
+
+Next: [Webhooks](/docs/clear-portal/webhooks)

@@ -1,0 +1,81 @@
+---
+title: Webhooks
+description: Create a webhook subscription that sends stock-in events from Clear to StockWise, so wiped devices are stocked in automatically.
+---
+
+import { Steps, Step } from 'fumadocs-ui/components/steps';
+
+The **Webhooks** page in the **Management** group lets Clear Portal send events to another system. Use it to integrate Clear with **StockWise**, so devices are stocked into StockWise automatically after they are wiped.
+
+## Before you start
+
+Automatic stock-in only works when all three of these are set up:
+
+1. **A webhook subscription** in Clear Portal — see [Creating a subscription](#creating-a-subscription).
+2. **Project settings** — the project must have **Require stock-in** and **Require label print** turned on. See [Configuring the project](#configuring-the-project).
+3. **StockWise configuration** — the matching setup must be completed in StockWise. If you use a **Static bearer token**, StockWise also provides the URL and token you enter in the subscription.
+
+<Callout type="warn">
+A webhook subscription on its own is not enough. If the project settings or the StockWise configuration are missing, devices are not stocked in automatically.
+</Callout>
+
+## The Webhooks page
+
+Click **Webhooks** under **Management** in the portal menu.
+
+![Webhooks page with the row actions menu open](/docs-images/clear-portal/webhooks-list.png)
+
+- Columns: **Name** (with the subscription's URL underneath), **Event types**, **Status** (for example, **Enabled**), and **Created**.
+- Click the three-dot menu at the end of a row for **View deliveries**, **Edit**, **Rotate secret**, and **Delete**.
+
+## Creating a subscription
+
+<Steps>
+<Step>On the Webhooks page, click **New subscription**. The New subscription dialog opens.</Step>
+<Step>Enter a **Name** for the subscription, for example **Stockwise**.</Step>
+<Step>
+Select an **Authentication** option, then fill in the fields it shows:
+
+- **Static bearer token** — enter the StockWise-provided address in **URL**, and the token generated or provided through StockWise in **Bearer token (optional)**. The token is write-only: when you edit the subscription later, leave the field blank to keep the existing token.
+
+  ![New subscription with Static bearer token](/docs-images/clear-portal/webhook-new-subscription.png)
+
+- **Stockwise service account** — no URL or token is needed. Deliveries go to this deployment's StockWise stock-in endpoint, using a token the portal requests from 99-IAM for your organisation on each delivery.
+
+  ![New subscription with Stockwise service account](/docs-images/clear-portal/webhook-stockwise-service-account.png)
+</Step>
+<Step>
+Under **Event types**, set the events to send. Selected events are highlighted in green.
+
+- **system.registered** is selected by default — click it to deselect it.
+- Click **session.stocked-in** and **drive.stocked-in** to select them.
+</Step>
+<Step>Click **Create**. The subscription appears on the Webhooks page.</Step>
+</Steps>
+
+## Configuring the project
+
+The project that the devices are wiped under must require stock-in and label printing.
+
+<Steps>
+<Step>Click **Projects** under **Configuration** in the portal menu.</Step>
+<Step>
+Create a new project, or open an existing one and click **Edit**.
+</Step>
+<Step>
+Under **Additional Settings**, tick **Require stock-in** and **Require label print**.
+
+![Create project dialog with Require stock-in and Require label print ticked](/docs-images/clear-portal/create-project.png)
+</Step>
+<Step>Click **Create** (new project) or **Save** (existing project).</Step>
+</Steps>
+
+For the full project workflow, see [Project Configuration](/docs/clear-portal/project-configuration).
+
+## The end result
+
+Once the webhook subscription, the project settings, and the StockWise configuration are all in place, a device wiped under that project is stocked into StockWise automatically. There is no separate manual stock-in step.
+
+---
+
+Previous: [Licences](/docs/clear-portal/licences)

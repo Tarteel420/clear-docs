@@ -1,0 +1,74 @@
+---
+title: Projects
+description: Review projects, open a project's details, and export its results and certificates.
+---
+
+import { Steps, Step } from 'fumadocs-ui/components/steps';
+
+The **Projects** page in the **Overview** group lets you review the wipe results recorded under each project. To create or change projects, use [Project Configuration](/docs/clear-portal/project-configuration) instead.
+
+## Finding a project
+
+<Steps>
+<Step>Click **Projects** under **Overview** in the portal menu.</Step>
+<Step>
+Use the search bar to find a project by **name**, **vendor**, or **PO**.
+
+![Projects list in the Overview group](/docs-images/clear-portal/projects-list.png)
+
+Each row shows the project name with its vendor and PO, plus counts for **Systems**, **Sessions**, and **Direct Drives**, and its **Licences** (for example, **Uncapped**).
+</Step>
+</Steps>
+
+## Viewing project details
+
+<Steps>
+<Step>
+Select a project from the list. The project page opens with the project name and its status (for example, **Active**).
+</Step>
+<Step>
+Review the project summary at the top: **Vendor**, **Purchase Order**, **External Vendor ID**, **Wiping Method**, **Source**, and **Licences** (quota and how many are used).
+
+![Project details with no wipes yet](/docs-images/clear-portal/project-details-empty.png)
+</Step>
+<Step>
+Scroll down to the **System Wipes** and **Direct Drives** sections. If nothing has been wiped yet, each section shows an empty message.
+</Step>
+<Step>Click the back arrow next to the project name to return to the Projects list.</Step>
+</Steps>
+
+## System Wipes in a project
+
+The **System Wipes** section lists the systems wiped under this project.
+
+- Filter by result using the tabs: **All**, **Active**, **Stale**, **Pass**, **Fail**. Each tab shows its count.
+- Search by **hostname or technician**, and narrow by date using **From** and **To**.
+- Columns: **System**, **CPU**, **RAM**, **Drives**, **Result**, **Completed**.
+
+![System Wipes section in a project](/docs-images/clear-portal/project-details-system-wipes.png)
+
+## Direct Drives in a project
+
+The **Direct Drives** section lists drives wiped on their own under this project, outside a system wipe.
+
+- Filter by result using the tabs: **All**, **In Progress**, **Pass**, **Fail**.
+- Search by **serial, make, or model**, and narrow by date using **From** and **To**.
+- Columns: **Drive**, **Capacity**, **Method**, **Passes**, **Result**, **Certificate**, **Completed**.
+- Click **View** in the **Certificate** column to open a drive's certificate.
+
+![Direct Drives section in a project](/docs-images/clear-portal/project-details-direct-drives.png)
+
+## Exporting a project
+
+Two buttons in the top right of the project page export its results:
+
+- **Export CSV** — opens a menu of CSV export options.
+- **Download Certificates** — downloads the project's certificates. The button is unavailable when the project has no wipes.
+
+<Callout type="info">
+The columns included in CSV exports are set on the [Export Columns](/docs/clear-portal/export-columns) page.
+</Callout>
+
+---
+
+Next: [System Wipes](/docs/clear-portal/system-wipes)

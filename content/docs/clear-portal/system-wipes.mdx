@@ -1,0 +1,31 @@
+---
+title: System Wipes
+description: Review every system wipe across the organisation and export the list as CSV.
+---
+
+import { Steps, Step } from 'fumadocs-ui/components/steps';
+
+The **System Wipes** page lists every system wipe in your organisation, across all projects.
+
+## Reviewing system wipes
+
+<Steps>
+<Step>Click **System Wipes** under **Overview** in the portal menu.</Step>
+<Step>
+Choose a result tab to filter the list: **All**, **Active**, **Stale**, **Pass**, or **Fail**. Each tab shows how many wipes it contains.
+
+![System Wipes page](/docs-images/clear-portal/system-wipes.png)
+</Step>
+<Step>Search by **hostname or technician**, or set a date range with **From** and **To**.</Step>
+<Step>
+Review the results. Each row shows **System**, **CPU**, **RAM**, **Drives**, **Result**, and **Completed** (the date and time, or **In Progress**).
+</Step>
+</Steps>
+
+## Exporting system wipes
+
+Click **Export CSV** in the top right to export the system wipes as a CSV file. The columns included are set on the [Export Columns](/docs/clear-portal/export-columns) page.
+
+---
+
+Next: [Project Configuration](/docs/clear-portal/project-configuration)

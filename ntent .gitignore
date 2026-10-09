@@ -1,0 +1,33 @@
+[1mdiff --git a/.gitignore b/.gitignore[m
+[1mdeleted file mode 100644[m
+[1mindex 9e429e4..0000000[m
+[1m--- a/.gitignore[m
+[1m+++ /dev/null[m
+[36m@@ -1,26 +0,0 @@[m
+[31m-# deps[m
+[31m-/node_modules[m
+[31m-[m
+[31m-# generated content[m
+[31m-.source[m
+[31m-[m
+[31m-# test & build[m
+[31m-/coverage[m
+[31m-/.next/[m
+[31m-/out/[m
+[31m-/build[m
+[31m-*.tsbuildinfo[m
+[31m-[m
+[31m-# misc[m
+[31m-.DS_Store[m
+[31m-*.pem[m
+[31m-/.pnp[m
+[31m-.pnp.js[m
+[31m-npm-debug.log*[m
+[31m-yarn-debug.log*[m
+[31m-yarn-error.log*[m
+[31m-[m
+[31m-# others[m
+[31m-.env*.local[m
+[31m-.vercel[m
+[31m-next-env.d.ts[m
+\ No newline at end of file[m

@@ -1,0 +1,43 @@
+---
+title: Vendor Profiles
+description: Add vendor profiles and set each vendor's wiping configuration.
+---
+
+import { Steps, Step } from 'fumadocs-ui/components/steps';
+
+A **vendor profile** represents a vendor your projects belong to, together with its wiping configuration. Every project is linked to a vendor profile.
+
+## The Vendor Profiles list
+
+Click **Vendor Profiles** under **Configuration** in the portal menu. Search by vendor name, and review each vendor's **Source** (for example, **Internal**), **External ID**, **Wiping method**, and **Created** date.
+
+![Vendor Profiles page](/docs-images/clear-portal/vendor-profiles.png)
+
+## Adding a vendor
+
+<Steps>
+<Step>Click **Add vendor** (top right). The Add vendor dialog opens.</Step>
+<Step>
+Choose the **Source**. **Internal (type manually)** lets you type the vendor name yourself.
+
+![Add vendor dialog](/docs-images/clear-portal/add-vendor.png)
+
+<Callout type="info">
+Until an external system is connected, vendor profiles use manual entry. See [External System](/docs/clear-portal/external-system).
+</Callout>
+</Step>
+<Step>Enter the **Vendor name**.</Step>
+<Step>
+Under **Wiping configuration**, choose the **Group** and **Method**.
+</Step>
+<Step>
+Set the **Verification percentage** — the share of data checked in the final verification pass. The dialog notes that the IEEE minimum is 5% and NIST recommends 10%. The allowed range is 1%–100%.
+</Step>
+<Step>Review the **Verify method** and **PRNG method**, then click **Create**.</Step>
+</Steps>
+
+The new vendor appears in the list and can be selected when [creating a project](/docs/clear-portal/project-configuration#creating-a-project).
+
+---
+
+Next: [External System](/docs/clear-portal/external-system)

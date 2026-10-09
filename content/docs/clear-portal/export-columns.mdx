@@ -1,0 +1,58 @@
+---
+title: Export Columns
+description: Choose which drive, system, and custom columns appear in Clear Portal CSV exports.
+---
+
+import { Steps, Step } from 'fumadocs-ui/components/steps';
+
+The **Export Columns** page controls the columns in every CSV the portal produces. It has three tabs: **Drive Columns**, **System Columns**, and **Custom Columns**. Each tab shows how many columns are currently selected.
+
+Click **Export Columns** under **Configuration** in the portal menu to open it.
+
+## Drive Columns
+
+Drive columns describe each drive. They are used by every CSV that has one row per drive — System Wipes, Direct Drives, the combined All Drives export, and the CSVs inside a certificate ZIP.
+
+![Drive Columns tab](/docs-images/clear-portal/export-drive-columns.png)
+
+## System Columns
+
+System columns describe the system a drive was wiped in. They make up the Sessions CSV and are added to the start of each row in the System Wipes and All Drives exports. The Direct Drives export does not include them, because those drives were not wiped in a system.
+
+![System Columns tab](/docs-images/clear-portal/export-system-columns.png)
+
+## Choosing drive or system columns
+
+<Steps>
+<Step>Open the **Drive Columns** or **System Columns** tab.</Step>
+<Step>
+In the **Available** list, click **+** next to a column to add it, or click **Add all**.
+</Step>
+<Step>
+In the **Selected** list, click the remove icon next to a column to take it out, or click **Remove all**. Columns are exported in the order shown in the Selected list.
+</Step>
+<Step>Click **Save** to apply your changes, or **Discard** to undo them.</Step>
+</Steps>
+
+<Callout type="info">
+Leave the Selected list empty to export every column.
+</Callout>
+
+## Custom Columns
+
+Custom columns are fixed name/value pairs added to the end of every CSV export — Sessions, every drive export, and the CSVs inside a certificate ZIP. The same value is repeated on every row, so use them to describe the export itself (for example, a visual grade or batch reference) rather than a drive.
+
+![Custom Columns tab](/docs-images/clear-portal/export-custom-columns.png)
+
+<Steps>
+<Step>Open the **Custom Columns** tab and click **+** to add a row.</Step>
+<Step>
+Enter a **Property Name** (required) and a **Value**. The property name is used exactly as typed for the column header.
+</Step>
+<Step>To remove a row, click the remove icon at the end of it.</Step>
+<Step>Click **Save**. If a row has a problem, it is highlighted and must be fixed before you can save.</Step>
+</Steps>
+
+<Callout type="info">
+You can add up to 20 custom columns.
+</Callout>
